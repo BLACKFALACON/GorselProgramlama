@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HalıSahaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SahaBilgi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sahaAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="konum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kapasite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SahaRezerve">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SahaId" Type="Int32" Nullable="false" />
+    <Property Name="Tarih" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Saat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nott" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="HalıSahaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SahaBilgis" EntityType="Self.SahaBilgi" />
+    <EntitySet Name="SahaRezerves" EntityType="Self.SahaRezerve" />
+    <EntitySet Name="SahaOdemes" EntityType="HalıSahaModel.SahaOdeme" />
+  </EntityContainer>
+  <EntityType Name="SahaOdeme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SahaId" Type="Int32" />
+    <Property Name="SahaOdeme1" Type="Int32" />
+  </EntityType>
+</Schema>

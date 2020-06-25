@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HalıSahaModelStoreContainer" CdmEntityContainer="HalıSahaEntities">
+    <EntitySetMapping Name="SahaBilgis">
+      <EntityTypeMapping TypeName="HalıSahaModel.SahaBilgi">
+        <MappingFragment StoreEntitySet="SahaBilgi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sahaAdı" ColumnName="sahaAdı" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="konum" ColumnName="konum" />
+          <ScalarProperty Name="kapasite" ColumnName="kapasite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SahaRezerves">
+      <EntityTypeMapping TypeName="HalıSahaModel.SahaRezerve">
+        <MappingFragment StoreEntitySet="SahaRezerve">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SahaId" ColumnName="SahaId" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Saat" ColumnName="Saat" />
+          <ScalarProperty Name="Nott" ColumnName="Nott" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SahaOdemes">
+      <EntityTypeMapping TypeName="HalıSahaModel.SahaOdeme">
+        <MappingFragment StoreEntitySet="SahaOdeme">
+          <ScalarProperty Name="SahaOdeme1" ColumnName="SahaOdeme" />
+          <ScalarProperty Name="SahaId" ColumnName="SahaId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

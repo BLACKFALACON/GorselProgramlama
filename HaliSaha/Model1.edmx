@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HalıSahaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SahaBilgi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sahaAdı" Type="nvarchar" MaxLength="50" />
+          <Property Name="fiyat" Type="nvarchar" MaxLength="50" />
+          <Property Name="konum" Type="nvarchar" MaxLength="50" />
+          <Property Name="kapasite" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SahaOdeme">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SahaId" Type="int" />
+          <Property Name="SahaOdeme" Type="int" />
+        </EntityType>
+        <EntityType Name="SahaRezerve">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SahaId" Type="int" Nullable="false" />
+          <Property Name="Tarih" Type="nvarchar" MaxLength="50" />
+          <Property Name="Saat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nott" Type="nvarchar" MaxLength="50" />
+          <Property Name="Durum" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="HalıSahaModelStoreContainer">
+          <EntitySet Name="SahaBilgi" EntityType="Self.SahaBilgi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SahaOdeme" EntityType="Self.SahaOdeme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SahaRezerve" EntityType="Self.SahaRezerve" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HalıSahaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SahaBilgi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sahaAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="konum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kapasite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SahaRezerve">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SahaId" Type="Int32" Nullable="false" />
+          <Property Name="Tarih" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Saat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nott" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HalıSahaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SahaBilgis" EntityType="Self.SahaBilgi" />
+          <EntitySet Name="SahaRezerves" EntityType="Self.SahaRezerve" />
+          <EntitySet Name="SahaOdemes" EntityType="HalıSahaModel.SahaOdeme" />
+        </EntityContainer>
+        <EntityType Name="SahaOdeme">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SahaId" Type="Int32" />
+          <Property Name="SahaOdeme1" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HalıSahaModelStoreContainer" CdmEntityContainer="HalıSahaEntities">
+          <EntitySetMapping Name="SahaBilgis">
+            <EntityTypeMapping TypeName="HalıSahaModel.SahaBilgi">
+              <MappingFragment StoreEntitySet="SahaBilgi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sahaAdı" ColumnName="sahaAdı" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="konum" ColumnName="konum" />
+                <ScalarProperty Name="kapasite" ColumnName="kapasite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SahaRezerves">
+            <EntityTypeMapping TypeName="HalıSahaModel.SahaRezerve">
+              <MappingFragment StoreEntitySet="SahaRezerve">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SahaId" ColumnName="SahaId" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Saat" ColumnName="Saat" />
+                <ScalarProperty Name="Nott" ColumnName="Nott" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SahaOdemes">
+            <EntityTypeMapping TypeName="HalıSahaModel.SahaOdeme">
+              <MappingFragment StoreEntitySet="SahaOdeme">
+                <ScalarProperty Name="SahaOdeme1" ColumnName="SahaOdeme" />
+                <ScalarProperty Name="SahaId" ColumnName="SahaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

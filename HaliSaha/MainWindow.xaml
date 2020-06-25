@@ -1,0 +1,23 @@
+﻿<Window x:Class="HaliSaha.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HaliSaha"
+        mc:Ignorable="d"
+        Title="Anasayfa" Height="450" Width="800">
+    
+    <Grid Margin="0,0,5,-17.5">
+        <Grid.Background>
+            <ImageBrush ImageSource="https://lh3.googleusercontent.com/proxy/HfVG9_TCsAiq3UrbdF5vrCRtAmHkq2H32NupUUOMVYnxOgXAFbK_YDYM88IgnorcgVQBbOyd0pU6du1uIN8kndZL5GBpGORhooskAiAGt5xlX5kndYnLRDBG" Stretch="UniformToFill"/>
+        </Grid.Background>
+        
+        <Button FontSize="38"  BorderBrush="Transparent" Background="Transparent" x:Name="Ekle" Content="Saha Ekle" HorizontalAlignment="Left" Margin="41,174,0,0" VerticalAlignment="Top" Width="220" Height="86" Click="Ekle_Click"/>
+        <Button FontSize="38" BorderBrush="Transparent" Background="Transparent" x:Name="Rezerve" Content="Saha Rezerve" HorizontalAlignment="Left" Margin="293,174,0,0" VerticalAlignment="Top" Width="236" Height="86" Click="Rezerve_Click" RenderTransformOrigin="0.208,0.538"/>
+        <Button FontSize="38" BorderBrush="Transparent" Background="Transparent" x:Name="Odeme" Content="Saha Ödeme" HorizontalAlignment="Left" Margin="560,174,0,0" VerticalAlignment="Top" Width="220" Height="86" Click="Odeme_Click"/>
+        <Label FontSize="55" Content="Halısaha KiralamaOtomasyonu" HorizontalAlignment="Left" Margin="18,27,0,0" VerticalAlignment="Top"/>
+
+
+
+    </Grid>
+</Window>

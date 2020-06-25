@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HalıSahaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SahaBilgi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sahaAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="fiyat" Type="nvarchar" MaxLength="50" />
+    <Property Name="konum" Type="nvarchar" MaxLength="50" />
+    <Property Name="kapasite" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SahaOdeme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SahaId" Type="int" />
+    <Property Name="SahaOdeme" Type="int" />
+  </EntityType>
+  <EntityType Name="SahaRezerve">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SahaId" Type="int" Nullable="false" />
+    <Property Name="Tarih" Type="nvarchar" MaxLength="50" />
+    <Property Name="Saat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nott" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="HalıSahaModelStoreContainer">
+    <EntitySet Name="SahaBilgi" EntityType="Self.SahaBilgi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SahaOdeme" EntityType="Self.SahaOdeme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SahaRezerve" EntityType="Self.SahaRezerve" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
